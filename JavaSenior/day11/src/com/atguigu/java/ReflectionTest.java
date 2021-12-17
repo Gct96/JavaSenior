@@ -50,4 +50,32 @@ public class ReflectionTest {
         System.out.println(nation);
     }
 
+    //获取class的实例的方式
+    @Test
+    public void test3() throws ClassNotFoundException{
+        //方式一：调用运行时类的属性 .class
+        Class clazz1=Person.class;
+        System.out.println(clazz1);
+
+        //方式二：通过运行时类的对象，调用getClass()
+        Person p1=new Person();
+        Class clazz2=p1.getClass();
+        System.out.println(clazz2);
+
+        //方式三：调用class的静态方法:forName(String classPath)
+        Class clazz3=Class.forName("com.atguigu.java.Person");
+        clazz3=Class.forName("java.lang.String");
+        System.out.println(clazz3);
+
+        //方式四：使用类的加载器:ClassLoader(了解)
+        ClassLoader classLoader=ReflectionTest.class.getClassLoader();
+        Class clazz4=classLoader.loadClass("com.atguigu.java.Person");
+        System.out.println(clazz4);
+
+        System.out.println(clazz1==clazz4);
+
+
+
+    }
+
 }
