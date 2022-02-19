@@ -23,8 +23,8 @@ public class Person extends Creature<String> implements Comparable<String>,MyInt
         System.out.println("我的国籍是"+nation);
         return nation;
     }
-    public String display(String interests){
-        return interests;
+    public String display(String interests,int age) throws NullPointerException,ClassCastException{
+        return interests+age;
     }
     @Override
     public void info() {
@@ -34,5 +34,18 @@ public class Person extends Creature<String> implements Comparable<String>,MyInt
     @Override
     public int compareTo(String o) {
         return 0;
+    }
+
+    public static void showDesc(){
+        System.out.println("我是一个小可");
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", id=" + id +
+                '}';
     }
 }
